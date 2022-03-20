@@ -1,0 +1,25 @@
+#  fuck you bot
+#  if you are reading this on github, fuck you
+
+import praw
+import time
+
+reddit = praw.Reddit(
+    client_id= "fw2NwLk59Rlzx6cE4r90Zg",
+    client_secret= "i_8b8DgsOgos6YiZwNop31DQzp6CeQ",
+    user_agent= "console:FUCK_YOU:v1.0>",
+    username=  "fuck_you_Bot01",
+    password= "fuckyou",)
+
+sub = reddit.subreddit("all")
+comm = "Fuck you \n \n Im a bot and this action was performed Automatically \n here is my source code:  \n  ur seeing it rn dumbass "
+
+for submission in sub.new:
+    for comment in submission.comments:
+        if hasattr (comment, "body"):
+            comment_lower = comment.body.lower()
+            if " " in comment_lower:
+                print("------------")
+                print(comment.body)
+                print(comment.author)
+                comment.reply(comm)
